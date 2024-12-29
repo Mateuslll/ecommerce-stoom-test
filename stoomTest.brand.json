@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "677179866be6e060ca464047"
+  },
+  "name": "Apple",
+  "logoUrl": "https://example.com/new-logo.png",
+  "isActive": false,
+  "_class": "com.teste.stoom.ecommerce.model.entity.Brand"
+},
+{
+  "_id": {
+    "$oid": "6771bbc719bd5f604150cbfc"
+  },
+  "name": "Samsung",
+  "logoUrl": "https://example.com/logos/samsung_logo.png",
+  "isActive": true,
+  "_class": "com.teste.stoom.ecommerce.model.entity.Brand"
+},
+{
+  "_id": {
+    "$oid": "6771bbe219bd5f604150cbfd"
+  },
+  "name": "Prada",
+  "logoUrl": "https://example.com/logos/prada_logo.png",
+  "isActive": true,
+  "_class": "com.teste.stoom.ecommerce.model.entity.Brand"
+},
+{
+  "_id": {
+    "$oid": "6771bbfd19bd5f604150cbfe"
+  },
+  "name": "Democrata",
+  "logoUrl": "https://example.com/logos/democrata_logo.png",
+  "isActive": true,
+  "_class": "com.teste.stoom.ecommerce.model.entity.Brand"
+}]

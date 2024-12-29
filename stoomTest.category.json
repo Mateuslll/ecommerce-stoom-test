@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "677174ab3bb31256a5df28b4"
+  },
+  "name": "Eletrônicos",
+  "description": "Produtos de tecnologia e gadgets",
+  "isActive": true,
+  "_class": "com.teste.stoom.ecommerce.model.entity.Category"
+},
+{
+  "_id": {
+    "$oid": "677187126c53025bb126bb58"
+  },
+  "name": "Cozinha",
+  "description": "Produtos de Cozinha",
+  "isActive": false,
+  "_class": "com.teste.stoom.ecommerce.model.entity.Category"
+},
+{
+  "_id": {
+    "$oid": "6771bb8e19bd5f604150cbf9"
+  },
+  "name": "Roupas",
+  "description": "Vestimentas masculinas e femininas.",
+  "isActive": true,
+  "_class": "com.teste.stoom.ecommerce.model.entity.Category"
+},
+{
+  "_id": {
+    "$oid": "6771bb9719bd5f604150cbfa"
+  },
+  "name": "Esportes",
+  "description": "Produtos esportivos, equipamentos e acessórios.",
+  "isActive": true,
+  "_class": "com.teste.stoom.ecommerce.model.entity.Category"
+},
+{
+  "_id": {
+    "$oid": "6771bba119bd5f604150cbfb"
+  },
+  "name": "Calçados",
+  "description": "Tênis, botas, sandálias e outros tipos de calçados.",
+  "isActive": true,
+  "_class": "com.teste.stoom.ecommerce.model.entity.Category"
+}]

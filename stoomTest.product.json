@@ -1,0 +1,160 @@
+[{
+  "_id": {
+    "$oid": "677151a9ba32ef63b099d294"
+  },
+  "name": "Smartphone XYZ - Atualizado",
+  "description": "Um smartphone moderno com câmera de alta qualidade e bateria duradoura.",
+  "price": 1399.99,
+  "category": {
+    "$ref": "category",
+    "$id": {
+      "$oid": "677174ab3bb31256a5df28b4"
+    }
+  },
+  "brand": {
+    "$ref": "brand",
+    "$id": {
+      "$oid": "677179866be6e060ca464047"
+    }
+  },
+  "isActive": true,
+  "images": [
+    "https://example.com/images/product1_updated.jpg",
+    "https://example.com/images/product2_updated.jpg"
+  ],
+  "createdAt": {
+    "$date": "2024-12-29T13:42:01.026Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-29T21:11:35.442Z"
+  },
+  "_class": "com.teste.stoom.ecommerce.model.entity.Product"
+},
+{
+  "_id": {
+    "$oid": "677193c47919be65f41a319c"
+  },
+  "name": "Iphone 16",
+  "description": "Um smartphone moderno com câmera de alta qualidade e bateria duradoura.",
+  "price": 1299.99,
+  "category": {
+    "$ref": "category",
+    "$id": {
+      "$oid": "677174ab3bb31256a5df28b4"
+    }
+  },
+  "brand": {
+    "$ref": "brand",
+    "$id": {
+      "$oid": "677179866be6e060ca464047"
+    }
+  },
+  "isActive": true,
+  "images": [
+    "https://example.com/images/product1.jpg",
+    "https://example.com/images/product2.jpg"
+  ],
+  "createdAt": {
+    "$date": "2024-12-29T18:24:04.310Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-29T18:24:04.310Z"
+  },
+  "_class": "com.teste.stoom.ecommerce.model.entity.Product"
+},
+{
+  "_id": {
+    "$oid": "6771bc9819bd5f604150cbff"
+  },
+  "name": "iPhone 13 Pro",
+  "description": "O novo iPhone 13 Pro com câmera de 12MP, chip A15 Bionic e tela OLED.",
+  "price": 999.99,
+  "category": {
+    "$ref": "category",
+    "$id": {
+      "$oid": "677174ab3bb31256a5df28b4"
+    }
+  },
+  "brand": {
+    "$ref": "brand",
+    "$id": {
+      "$oid": "677179866be6e060ca464047"
+    }
+  },
+  "isActive": true,
+  "images": [
+    "https://example.com/images/iphone13pro1.jpg",
+    "https://example.com/images/iphone13pro2.jpg"
+  ],
+  "createdAt": {
+    "$date": "2024-12-29T21:18:16.066Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-29T21:18:16.066Z"
+  },
+  "_class": "com.teste.stoom.ecommerce.model.entity.Product"
+},
+{
+  "_id": {
+    "$oid": "6771bcc719bd5f604150cc00"
+  },
+  "name": "Smart TV Sony 55\" 4K",
+  "description": "TV 4K da Sony com Android TV e acesso ao Netflix e YouTube.",
+  "price": 1200,
+  "category": {
+    "$ref": "category",
+    "$id": {
+      "$oid": "677174ab3bb31256a5df28b4"
+    }
+  },
+  "brand": {
+    "$ref": "brand",
+    "$id": {
+      "$oid": "6771bbc719bd5f604150cbfc"
+    }
+  },
+  "isActive": true,
+  "images": [
+    "https://example.com/images/sony4k_tv1.jpg",
+    "https://example.com/images/sony4k_tv2.jpg"
+  ],
+  "createdAt": {
+    "$date": "2024-12-29T21:19:03.825Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-29T21:19:03.825Z"
+  },
+  "_class": "com.teste.stoom.ecommerce.model.entity.Product"
+},
+{
+  "_id": {
+    "$oid": "6771bcf719bd5f604150cc01"
+  },
+  "name": "Tênis Nike Air Max",
+  "description": "Tênis de corrida Nike Air Max com amortecimento e conforto de última geração.",
+  "price": 150,
+  "category": {
+    "$ref": "category",
+    "$id": {
+      "$oid": "6771bba119bd5f604150cbfb"
+    }
+  },
+  "brand": {
+    "$ref": "brand",
+    "$id": {
+      "$oid": "6771bbfd19bd5f604150cbfe"
+    }
+  },
+  "isActive": true,
+  "images": [
+    "https://example.com/images/niketennis1.jpg",
+    "https://example.com/images/niketennis2.jpg"
+  ],
+  "createdAt": {
+    "$date": "2024-12-29T21:19:51.136Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-29T21:19:51.136Z"
+  },
+  "_class": "com.teste.stoom.ecommerce.model.entity.Product"
+}]

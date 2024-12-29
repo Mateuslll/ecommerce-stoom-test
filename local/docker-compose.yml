@@ -1,0 +1,8 @@
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=stoomTest
+      - MONGO_INITDB_ROOT_PASSWORD=admin123

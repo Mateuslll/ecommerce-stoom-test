@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "f6f4ad5e-a8f4-4265-bd16-5473a371c595",
+		"name": "Stoom API",
+		"description": "# **API Documentation**\n\n## **1\\. Produtos (Products)**\n\n### **1.1. Create (POST) - Criar Produto**\n\n- **Endpoint**: `/api/products`\n    \n- **Descrição**: Este endpoint permite criar um novo produto. O corpo da requisição deve incluir as informações do produto, como nome, descrição, preço, categoria, marca e imagens.\n    \n- **Corpo da Requisição (JSON)**:\n    \n    ``` json\n      {\n          \"name\": \"Produto Exemplo\",\n          \"description\": \"Descrição do produto\",\n          \"price\": 199.99,\n          \"categoryId\": \"categoryIdAqui\",\n          \"brandId\": \"brandIdAqui\",\n          \"isActive\": true,\n          \"images\": [\"https://exemplo.com/imagem1.jpg\"]\n      }\n    \n     ```\n    \n- **Resposta (200 OK)**:\n    \n    ``` json\n      {\n          \"id\": \"productId\",\n          \"name\": \"Produto Exemplo\",\n          \"description\": \"Descrição do produto\",\n          \"price\": 199.99,\n          \"categoryId\": \"categoryIdAqui\",\n          \"brandId\": \"brandIdAqui\",\n          \"isActive\": true,\n          \"images\": [\"https://exemplo.com/imagem1.jpg\"],\n          \"createdAt\": \"2024-12-29T10:00:00\",\n          \"updatedAt\": \"2024-12-29T10:00:00\"\n      }\n    \n     ```\n    \n\n---\n\n### **1.2. Read (GET) - Obter Produto por ID**\n\n- **Endpoint**: `/api/products/{id}`\n    \n- **Descrição**: Retorna um produto específico com base no ID fornecido, incluindo informações enriquecidas sobre a categoria e marca.\n    \n- **Parâmetros**:\n    - **id**: O **ID** do produto.\n        \n- **Resposta (200 OK)**:\n    \n    ``` json\n      {\n          \"id\": \"productId\",\n          \"name\": \"Produto Exemplo\",\n          \"description\": \"Descrição do produto\",\n          \"price\": 199.99,\n          \"category\": {\n              \"id\": \"categoryId\",\n              \"name\": \"Categoria Exemplo\"\n          },\n          \"brand\": {\n              \"id\": \"brandId\",\n              \"name\": \"Marca Exemplo\"\n          },\n          \"isActive\": true,\n          \"images\": [\"https://exemplo.com/imagem1.jpg\"],\n          \"createdAt\": \"2024-12-29T10:00:00\",\n          \"updatedAt\": \"2024-12-29T10:00:00\"\n      }\n    \n     ```\n    \n\n---\n\n### **1.3. Read (GET) - Listar Todos os Produtos**\n\n- **Endpoint**: `/api/products`\n    \n- **Descrição**: Retorna uma lista paginada de produtos com filtro opcional por nome, categoria ou marca.\n    \n- **Parâmetros**:\n    - **page**: Número da página (padrão: 0).\n        \n    - **pageSize**: Número de itens por página (padrão: 10).\n        \n    - **search**: Termo de pesquisa para filtrar por nome, categoria ou marca.\n        \n- **Resposta (200 OK)**:\n    \n    ``` json\n      [\n          {\n              \"id\": \"productId\",\n              \"name\": \"Produto Exemplo\",\n              \"description\": \"Descrição do produto\",\n              \"price\": 199.99,\n              \"category\": {\n                  \"id\": \"categoryId\",\n                  \"name\": \"Categoria Exemplo\"\n              },\n              \"brand\": {\n                  \"id\": \"brandId\",\n                  \"name\": \"Marca Exemplo\"\n              },\n              \"isActive\": true,\n              \"images\": [\"https://exemplo.com/imagem1.jpg\"],\n              \"createdAt\": \"2024-12-29T10:00:00\",\n              \"updatedAt\": \"2024-12-29T10:00:00\"\n          }\n      ]\n    \n     ```\n    \n\n---\n\n### **1.4. Update (PUT) - Atualizar Produto**\n\n- **Endpoint**: `/api/products/{id}`\n    \n- **Descrição**: Atualiza um produto existente com base no **ID**. O corpo da requisição deve conter os campos a serem atualizados.\n    \n- **Parâmetros**:\n    - **id**: O **ID** do produto.\n        \n- **Corpo da Requisição (JSON)**:\n    \n    ``` json\n      {\n          \"name\": \"Produto Atualizado\",\n          \"description\": \"Descrição atualizada\",\n          \"price\": 259.99,\n          \"categoryId\": \"categoryIdAtualizado\",\n          \"brandId\": \"brandIdAtualizado\",\n          \"isActive\": false,\n          \"images\": [\"https://exemplo.com/imagemAtualizada.jpg\"]\n      }\n    \n     ```\n    \n\n---\n\n### **1.5. Delete (PATCH) - Desativar Produto**\n\n- **Endpoint**: `/api/products/{id}/deactivate`\n    \n- **Descrição**: Desativa um produto, marcando-o como **inativo** sem excluí-lo do banco de dados.\n    \n- **Parâmetros**:\n    - **id**: O **ID** do produto a ser desativado.\n        \n- **Resposta (200 OK)**:\n    \n    ``` json\n      {\n          \"id\": \"productId\",\n          \"name\": \"Produto Desativado\",\n          \"description\": \"Descrição do produto desativado\",\n          \"price\": 199.99,\n          \"categoryId\": \"categoryId\",\n          \"brandId\": \"brandId\",\n          \"isActive\": false,\n          \"images\": [\"https://exemplo.com/imagemDesativada.jpg\"],\n          \"createdAt\": \"2024-12-29T10:00:00\",\n          \"updatedAt\": \"2024-12-29T10:00:00\"\n      }\n    \n     ```\n    \n\n---\n\n## **2\\. Categorias e Marcas (CRUD)**\n\n### **2.1. Create (POST) - Criar Categoria**\n\n- **Endpoint**: `/api/categories`\n    \n- **Descrição**: Cria uma nova categoria. O corpo da requisição deve incluir nome, descrição e status da categoria (ativa ou inativa).\n    \n- **Corpo da Requisição (JSON)**:\n    \n    ``` json\n      {\n          \"name\": \"Eletrônicos\",\n          \"description\": \"Produtos eletrônicos como smartphones, laptops, etc.\",\n          \"isActive\": true\n      }\n    \n     ```\n    \n\n---\n\n### **2.2. Create (POST) - Criar Marca**\n\n- **Endpoint**: `/api/brands`\n    \n- **Descrição**: Cria uma nova marca. O corpo da requisição deve incluir o nome da marca, URL do logo e seu status (ativo ou inativo).\n    \n- **Corpo da Requisição (JSON)**:\n    \n    ``` json\n      {\n          \"name\": \"Apple\",\n          \"logoUrl\": \"https://example.com/logos/apple_logo.png\",\n          \"isActive\": true\n      }\n    \n     ```\n    \n\n---\n\n### **2.3. Read (GET) - Obter Categoria por ID**\n\n- **Endpoint**: `/api/categories/{id}`\n    \n- **Descrição**: Retorna os detalhes de uma categoria específica com base no ID.\n    \n- **Parâmetros**:\n    - **id**: O **ID** da categoria.\n        \n- **Resposta (200 OK)**:\n    \n    ``` json\n      {\n          \"id\": \"categoryId\",\n          \"name\": \"Eletrônicos\",\n          \"description\": \"Produtos eletrônicos como smartphones, laptops, etc.\",\n          \"isActive\": true\n      }\n    \n     ```\n    \n\n---\n\n### **2.4. Read (GET) - Obter Marca por ID**\n\n- **Endpoint**: `/api/brands/{id}`\n    \n- **Descrição**: Retorna os detalhes de uma marca específica com base no ID.\n    \n- **Parâmetros**:\n    - **id**: O **ID** da marca.\n        \n- **Resposta (200 OK)**:\n    \n    ``` json\n      {\n          \"id\": \"brandId\",\n          \"name\": \"Apple\",\n          \"logoUrl\": \"https://example.com/logos/apple_logo.png\",\n          \"isActive\": true\n      }\n    \n     ```\n    \n\n---\n\n### **2.5. Update (PUT) - Atualizar Categoria**\n\n- **Endpoint**: `/api/categories/{id}`\n    \n- **Descrição**: Atualiza os dados de uma categoria existente.\n    \n- **Parâmetros**:\n    - **id**: O **ID** da categoria a ser atualizada.\n        \n- **Corpo da Requisição (JSON)**:\n    \n    ``` json\n      {\n          \"name\": \"Eletrônicos Atualizados\",\n          \"description\": \"Produtos eletrônicos e acessórios.\",\n          \"isActive\": true\n      }\n    \n     ```\n    \n\n---\n\n### **2.6. Update (PUT) - Atualizar Marca**\n\n- **Endpoint**: `/api/brands/{id}`\n    \n- **Descrição**: Atualiza os dados de uma marca existente.\n    \n- **Parâmetros**:\n    - **id**: O **ID** da marca a ser atualizada.\n        \n- **Corpo da Requisição (JSON)**:\n    \n    ``` json\n      {\n          \"name\": \"Apple Updated\",\n          \"logoUrl\": \"https://example.com/logos/apple_updated_logo.png\",\n          \"isActive\": true\n      }\n    \n     ```\n    \n\n---\n\n### **2.7. Delete (PATCH) - Desativar Categoria**\n\n- **Endpoint**: `/api/categories/{id}/deactivate`\n    \n- **Descrição**: Desativa uma categoria sem excluí-la.\n    \n- **Parâmetros**:\n    - **id**: O **ID** da categoria.\n        \n- **Resposta (200 OK)**:\n    \n    ``` json\n      {\n          \"id\": \"categoryId\",\n          \"name\": \"Eletrônicos\",\n          \"description\": \"Produtos eletrônicos como smartphones, laptops, etc.\",\n          \"isActive\": false\n      }\n    \n     ```\n    \n\n---\n\n### **2.8. Delete (PATCH) - Desativar Marca**\n\n- **Endpoint**: `/api/brands/{id}/deactivate`\n    \n- **Descrição**: Desativa uma marca sem excluí-la.\n    \n- **Parâmetros**:\n    - **id**: O **ID** da marca.\n        \n- **Resposta (200 OK)**:\n    \n    ``` json\n      {\n          \"id\": \"brandId\",\n          \"name\": \"Apple\",\n          \"logoUrl\": \"https://example.com/logos/apple_logo.png\",\n          \"isActive\": false\n      }\n    \n     ```\n    \n\n---",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37664634"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Smartphone XYZ\",\r\n  \"description\": \"Um smartphone moderno com câmera de alta qualidade e bateria duradoura.\",\r\n  \"price\": 1299.99,\r\n  \"categoryId\": \"electronics\",\r\n  \"brandId\": \"brand123\",\r\n  \"images\": [\r\n    \"https://example.com/images/product1.jpg\",\r\n    \"https://example.com/images/product2.jpg\"\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/api/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Product por ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Listagem de Product paginado",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Listagem de Product por Brand específica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/brand/6771bbfd19bd5f604150cbfe?page=0&pageSize=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"brand",
+								"6771bbfd19bd5f604150cbfe"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Product por ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Smartphone XYZ - Atualizado\",\r\n  \"description\": \"Um smartphone moderno com câmera de alta qualidade e bateria duradoura.\",\r\n  \"price\": 1399.99,\r\n  \"isActive\": true,\r\n  \"categoryId\": \"677174ab3bb31256a5df28b4\",\r\n  \"brandId\": \"677179866be6e060ca464047\",\r\n  \"images\": [\r\n    \"https://example.com/images/product1_updated.jpg\",\r\n    \"https://example.com/images/product2_updated.jpg\"\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/products/677151a9ba32ef63b099d294"
+					},
+					"response": []
+				},
+				{
+					"name": "Desativar Product Existente",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "http://localhost:8080/api/products/677151a9ba32ef63b099d294/deactivate"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"name\": \"Calçados\",\r\n        \"description\": \"Tênis, botas, sandálias e outros tipos de calçados.\",\r\n        \"isActive\": true\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/category"
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Category Por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/category/677174ab3bb31256a5df28b4"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Category por ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Novos Eletrônicos\",\r\n  \"description\": \"Produtos de tecnologia de última geração\",\r\n  \"isActive\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/category/677186ed6c53025bb126bb57"
+					},
+					"response": []
+				},
+				{
+					"name": "Desativar Category Existente",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "http://localhost:8080/api/category/677187126c53025bb126bb58/deactivate"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brand",
+			"item": [
+				{
+					"name": "Create Brand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"name\": \"Democrata\",\r\n        \"logoUrl\": \"https://example.com/logos/democrata_logo.png\",\r\n        \"isActive\": true\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/brand"
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Brand Por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/brand/677179866be6e060ca464047"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Brand por ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Apple\",\r\n  \"logoUrl\": \"https://example.com/new-logo.png\",\r\n  \"isActive\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/brand/677179866be6e060ca464047"
+					},
+					"response": []
+				},
+				{
+					"name": "Desativar Brand Existente",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "http://localhost:8080/api/brand/677179866be6e060ca464047/deactivate"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
