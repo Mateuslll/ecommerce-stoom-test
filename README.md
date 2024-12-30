@@ -46,7 +46,7 @@ Após iniciar a aplicação, você pode testar os endpoints através do postman.
 
 A collection do Postman com os endpoints da API está disponível no arquivo `Stoom API.postman_collection.json` na raiz do projeto.
 
-### 3. **Mongo Compass**
+### 4. **Mongo Compass**
 
 Passos para Importar uma Collection Usando o MongoDB Compass
 
