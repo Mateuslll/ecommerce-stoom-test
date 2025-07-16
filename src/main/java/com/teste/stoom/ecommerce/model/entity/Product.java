@@ -29,8 +29,10 @@ public class Product {
     private String name;
     private String description;
     private Double price;
+
     @DBRef
     private Category category;
+
     @DBRef
     private Brand brand;
     private Boolean isActive;
